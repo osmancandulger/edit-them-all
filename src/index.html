@@ -17,9 +17,12 @@
     <script src="./library/addon/edit/closebrackets.js"></script>
     <script src="./library/addon/search/search.js"></script>
     <script src="./library/addon/search/searchcursor.js"></script>
+    <script src="./library/addon/edit/closebrackets.js"></script>
+    <script src="./library/addon/edit/matchbrackets.js"></script>
+    <script src="./library/addon/edit/matchtags.js"></script>
+    <script src="./library/addon/edit/trailingspace.js"></script>
     <link rel="stylesheet" href="./library/theme/dracula.css" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <script  type="module" src="./app/contentCard.js"></script>
     <title>Edit 'em All!</title>
   </head>
 
@@ -39,24 +42,29 @@
         </select>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#historyModal" >Save</button>
       </div>
-      <div class="content-area border border-primary">
+      <div class="content-area border border">
         <iframe style="border:none;" id="content-frame"></iframe>
       </div>
     </div>
-    <div class="editor-options-area d-flex w-100 justify-content-end">
-      <button class="minimize-btn btn btn-secondary">Minimize</button>
-      <button class="run-btn btn btn-success">Run</button>
+    <div class="editor-options-area d-flex w-100 justify-content-end mb-2">
+      <button class="minimize-btn btn btn-secondary btn-sm">Minimize</button>
+      <button class="run-btn btn btn-success btn-sm">Run</button>
     </div>
     <div class="editors-container d-flex flex-column">
      
-      <div class="editors-wrapper d-flex justify-content-around">
-        <div class="editor-area js-editor-area border border-secondary">
+      <div class="editors-wrapper  d-flex justify-content-around">
+        <div class="editor-area js-editor-area  ">
+          <label for="html-editor"><strong>HTML</strong></label>
             <textarea id="html-editor"></textarea>
         </div>
-        <div class="editor-area html-editor-area border border-secondary">
+        <div class="editor-area html-editor-area  ">
+          <label for="html-editor"><strong>CSS</strong></label>
+
             <textarea id="css-editor"></textarea>
         </div>
-        <div class="editor-area css-editor-area border border-secondary">
+        <div class="editor-area css-editor-area ">
+          <label for="html-editor"><strong>JavaScript</strong></label>
+
             <textarea id="js-editor"></textarea>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { test } from "./utils.js";
 let editors = [
   { value: document.getElementById("html-editor"), type: "xml" },
   { value: document.getElementById("css-editor"), type: "css" },
@@ -69,7 +68,7 @@ let htmlEditor = CodeMirror.fromTextArea(editors[0].value, {
   autoCloseBrackets: true,
   spellcheck: true,
 });
-htmlEditor.setSize("350", "300");
+htmlEditor.setSize("350", "250");
 let cssEditor = CodeMirror.fromTextArea(editors[1].value, {
   mode: editors[1].type,
   theme: "dracula",
@@ -78,7 +77,7 @@ let cssEditor = CodeMirror.fromTextArea(editors[1].value, {
   autoCloseBrackets: true,
   spellcheck: true,
 });
-cssEditor.setSize("350", "300");
+cssEditor.setSize("350", "250");
 let javascriptEditor = CodeMirror.fromTextArea(editors[2].value, {
   mode: editors[2].type,
   theme: "dracula",
@@ -87,7 +86,7 @@ let javascriptEditor = CodeMirror.fromTextArea(editors[2].value, {
   autoCloseBrackets: true,
   spellcheck: true,
 });
-javascriptEditor.setSize("350", "300");
+javascriptEditor.setSize("350", "250");
 
 export function getEditorsValue() {
   let editors = [
