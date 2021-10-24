@@ -8,6 +8,7 @@ export let htmlEditorValue = "";
 export let cssEditorValue = "";
 export let javascriptEditorValue = "";
 let iframeContent = null;
+let isValid = false;
 const runButton = document.querySelector(".run-btn");
 const saveButton = document.querySelector(".save-btn");
 var select = document.getElementById("history-selectbox");
@@ -40,12 +41,17 @@ saveButton.addEventListener("click", () => {
   const historySelect = document.querySelector(".history-select");
   const historyName = document.querySelector("#history-name");
   const optionEl = document.createElement("option");
-
-  optionEl.setAttribute("value", historyName.value);
-  optionEl.text = historyName.value;
-  setTimeout(() => {
-    historySelect.appendChild(optionEl);
-  }, 250);
+  if (historyName.value) {
+    isValid = true;
+    optionEl.setAttribute("value", historyName.value);
+    optionEl.text = historyName.value;
+    setTimeout(() => {
+      historySelect.appendChild(optionEl);
+    }, 250);
+  } else {
+    isValid = false;
+    alert("Please Provide a name");
+  }
 });
 const minimizeButton = document.querySelector(".minimize-btn");
 minimizeButton.addEventListener("click", () => {
@@ -158,7 +164,9 @@ function setItem() {
     },
     ...getStorage,
   };
-  localStorage.setItem(historyName.value, JSON.stringify(storage));
+  if (isValid) {
+    localStorage.setItem(historyName.value, JSON.stringify(storage));
+  }
 }
 selectBox.addEventListener("click", () => {
   const getItem = localStorage.getItem(selectBox.value);
