@@ -37,23 +37,26 @@ function apendToOption() {
   });
 }
 apendToOption();
-saveButton.addEventListener("click", () => {
-  const historySelect = document.querySelector(".history-select");
-  const historyName = document.querySelector("#history-name");
-  const optionEl = document.createElement("option");
-  if (historyName.value) {
-    isValid = true;
-    optionEl.setAttribute("value", historyName.value);
-    optionEl.setAttribute("selected", true);
-    optionEl.text = historyName.value;
-    setTimeout(() => {
-      historySelect.appendChild(optionEl);
-    }, 250);
-  } else {
-    isValid = false;
-    alert("Please Provide a name");
-  }
-});
+optionValFromLocal();
+function optionValFromLocal() {
+  saveButton.addEventListener("click", () => {
+    const historySelect = document.querySelector(".history-select");
+    const historyName = document.querySelector("#history-name");
+    const optionEl = document.createElement("option");
+    if (historyName.value) {
+      isValid = true;
+      optionEl.setAttribute("value", historyName.value);
+      optionEl.setAttribute("selected", true);
+      optionEl.text = historyName.value;
+      setTimeout(() => {
+        historySelect.appendChild(optionEl);
+      }, 250);
+    } else {
+      isValid = false;
+      alert("Please Provide a name");
+    }
+  });
+}
 minimizer();
 function minimizer() {
   const minimizeButton = document.querySelector(".minimize-btn");
@@ -61,9 +64,11 @@ function minimizer() {
     let editorContainer = document.querySelector(".editors-container");
     let contentArea = document.querySelector(".content-area");
     if (!editorContainer.classList.contains("editors-container-minimize")) {
+      minimizeButton.textContent = "Maximize";
       editorContainer.classList.add("editors-container-minimize");
       contentArea.classList.add("content-area-minimize");
     } else {
+      minimizeButton.textContent = "Minimize";
       editorContainer.classList.remove("editors-container-minimize");
       contentArea.classList.remove("content-area-minimize");
     }
