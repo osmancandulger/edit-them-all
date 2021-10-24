@@ -9,6 +9,14 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="./library/lib/codemirror.js"></script>
+    <link href="./library/lib/codemirror.css" rel="stylesheet"></link>
+    <script src="./library/mode/xml/xml.js"></script>
+    <script src="./library/addon/edit/closetag.js"></script>
+    <script src="./library/addon/edit/closebrackets.js"></script>
+    <script src="./library/addon/search/search.js"></script>
+    <script src="./library/addon/search/searchcursor.js"></script>
+    <link rel="stylesheet" href="./library/theme/dracula.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>Compile 'em All!</title>
   </head>
@@ -32,24 +40,29 @@
         </select>
         <button class="btn btn-success">Save</button>
       </div>
-      <div class="content-area border border-primary">test</div>
+      <div class="content-area border border-primary">
+      </div>
     </div>
     <div class="editors-container d-flex flex-column">
       <div class="editor-options-area d-flex w-100 justify-content-end">
         <button class="btn btn-secondary">Minimize</button>
-        <button class="btn btn-success">Run</button>
+        <button class="run-btn btn btn-success">Run</button>
       </div>
       <div class="editors-wrapper d-flex justify-content-around">
         <div class="editor-area js-editor-area border border-secondary">
-          test
+            <textarea id="html-editor"></textarea>
+
         </div>
         <div class="editor-area html-editor-area border border-secondary">
-          test1
+            <textarea id="css-editor"></textarea>
+
         </div>
         <div class="editor-area css-editor-area border border-secondary">
-          test3
+            <textarea id="js-editor"></textarea>
+
         </div>
       </div>
     </div>
   </body>
+  <script src="./app/index.js"></script>
 </html>
