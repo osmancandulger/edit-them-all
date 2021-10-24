@@ -1,8 +1,18 @@
-.editor-area {
+/* .editor-area {
   width: 350px;
   height: 350px;
-}
+} */
 .content-area {
-  width: 100%;
+  width: 60%;
   height: 350px;
+  transition: transform 0.6s ease-in;
+}
+.editors-container {
+  transition: transform 0.6s ease-in;
+}
+.editors-container-minimize {
+  transform: scale(0.8);
+}
+.content-area-minimize {
+  transform: scale(1.1);
 }
