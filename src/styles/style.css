@@ -12,6 +12,12 @@
 .content-area-minimize {
   transform: scale(1.1);
 }
+.history-action + .history-action {
+  margin-left: 5px;
+}
+.editor-action + .editor-action {
+  margin-left: 5px;
+}
 @media only screen and (max-width: 1040px) {
   .editors-wrapper {
     display: flex;
