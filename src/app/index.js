@@ -44,6 +44,7 @@ saveButton.addEventListener("click", () => {
   if (historyName.value) {
     isValid = true;
     optionEl.setAttribute("value", historyName.value);
+    optionEl.setAttribute("selected", true);
     optionEl.text = historyName.value;
     setTimeout(() => {
       historySelect.appendChild(optionEl);
