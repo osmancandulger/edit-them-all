@@ -4,7 +4,9 @@ let editors = [
   { value: document.getElementById("js-editor"), type: "javascript" },
 ];
 export let editorsValues = [];
-export let editorsValues1 = "<h1>Hello Web Components </h1>";
+export let htmlEditorValue = "";
+export let cssEditorValue = "";
+export let javascriptEditorValue = "";
 const runButton = document.querySelector(".run-btn");
 //TODO:Refactor for more dynamic
 
@@ -35,6 +37,7 @@ let javascriptEditor = CodeMirror.fromTextArea(editors[2].value, {
   spellcheck: true,
 });
 javascriptEditor.setSize("350", "300");
+
 export function getEditorsValue() {
   let editors = [
     { value: htmlEditor },
@@ -49,8 +52,17 @@ export function getEditorsValue() {
         value: item.value.getValue(),
       });
     }
+    htmlEditorValue = htmlEditor.getValue();
+    cssEditorValue = cssEditor.getValue();
+    javascriptEditorValue = javascriptEditor.getValue();
   });
-  console.log(editorsValues);
+  setAttribute();
+}
+function setAttribute() {
+  let content_card = document.querySelector("content-card");
+  content_card.setAttribute("html", htmlEditorValue);
+  content_card.setAttribute("css", cssEditorValue);
+  content_card.setAttribute("javascript", javascriptEditorValue);
 }
 runButton.addEventListener("click", getEditorsValue);
 document.addEventListener(
@@ -62,6 +74,7 @@ document.addEventListener(
     ) {
       e.preventDefault();
       getEditorsValue();
+      console.warn("running");
     }
   },
   false
