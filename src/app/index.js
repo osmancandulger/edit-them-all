@@ -11,6 +11,8 @@ let iframeContent = null;
 let isValid = false;
 const runButton = document.querySelector(".run-btn");
 const saveButton = document.querySelector(".save-btn");
+const clearButton = document.querySelector(".clear-btn");
+
 var select = document.getElementById("history-selectbox");
 select.addEventListener(
   "change",
@@ -56,7 +58,13 @@ function optionValFromLocal() {
       alert("Please Provide a name");
     }
   });
+  clearButton.addEventListener("click", () => clearStorage());
 }
+
+function clearStorage() {
+  localStorage.clear();
+}
+
 minimizer();
 function minimizer() {
   const minimizeButton = document.querySelector(".minimize-btn");
@@ -155,9 +163,9 @@ const saveElement = document.querySelector(".save-btn");
 const historyName = document.querySelector("#history-name");
 const selectBox = document.querySelector("#history-selectbox");
 saveElement.addEventListener("click", () => {
-  setItem();
+  setItem(false);
 });
-function setItem() {
+function setItem(isClear) {
   const getStorage = JSON.parse(localStorage.getItem(historyName.value));
   const storage = {
     [historyName.value]: {
@@ -167,7 +175,7 @@ function setItem() {
     },
     ...getStorage,
   };
-  if (isValid) {
+  if (isValid && !isClear) {
     localStorage.setItem(historyName.value, JSON.stringify(storage));
   }
 }

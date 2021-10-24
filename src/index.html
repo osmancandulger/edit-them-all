@@ -37,18 +37,19 @@
       "
     >
       <div class="content-options d-flex w-100 justify-content-end">
-        <select  id="history-selectbox"class="history-select form-select-sm" aria-label="History select option">
+        <select  id="history-selectbox" class="history-select history-action col-1 form-select-sm" aria-label="History select option">
           <option value="initial" selected>Select from History</option>
         </select>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#historyModal" >Save</button>
+        <button type="button" class="history-action clear-btn btn btn-warning btn-sm">Clear History</button>
+        <button type="button" class="history-action btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#historyModal" >Save</button>
       </div>
       <div class="content-area border border">
         <iframe style="border:none;" id="content-frame"></iframe>
       </div>
     </div>
     <div class="editor-options-area d-flex w-100 justify-content-end mb-2">
-      <button class="minimize-btn btn btn-secondary btn-sm">Minimize</button>
-      <button class="run-btn btn btn-success btn-sm">Run</button>
+      <button class="editor-action minimize-btn btn btn-secondary btn-sm">Minimize</button>
+      <button class="editor-action run-btn btn btn-success btn-sm">Run</button>
     </div>
     <div class="editors-container d-flex flex-column">
      
