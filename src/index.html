@@ -18,6 +18,7 @@
     <script src="./library/addon/search/searchcursor.js"></script>
     <link rel="stylesheet" href="./library/theme/dracula.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <script defer type="module" src="./app/contentCard.js"></script>
     <title>Compile 'em All!</title>
   </head>
 
@@ -41,6 +42,7 @@
         <button class="btn btn-success">Save</button>
       </div>
       <div class="content-area border border-primary">
+        <content-card></content-card>
       </div>
     </div>
     <div class="editors-container d-flex flex-column">
@@ -51,18 +53,15 @@
       <div class="editors-wrapper d-flex justify-content-around">
         <div class="editor-area js-editor-area border border-secondary">
             <textarea id="html-editor"></textarea>
-
         </div>
         <div class="editor-area html-editor-area border border-secondary">
             <textarea id="css-editor"></textarea>
-
         </div>
         <div class="editor-area css-editor-area border border-secondary">
             <textarea id="js-editor"></textarea>
-
         </div>
       </div>
     </div>
   </body>
-  <script src="./app/index.js"></script>
+  <script type="module" src="./app/index.js"></script>
 </html>

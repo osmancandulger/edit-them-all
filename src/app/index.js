@@ -3,6 +3,8 @@ let editors = [
   { value: document.getElementById("css-editor"), type: "css" },
   { value: document.getElementById("js-editor"), type: "javascript" },
 ];
+export let editorsValues = [];
+export let editorsValues1 = "<h1>Hello Web Components </h1>";
 const runButton = document.querySelector(".run-btn");
 //TODO:Refactor for more dynamic
 
@@ -33,14 +35,13 @@ let javascriptEditor = CodeMirror.fromTextArea(editors[2].value, {
   spellcheck: true,
 });
 javascriptEditor.setSize("350", "300");
-function getEditorsValue() {
+export function getEditorsValue() {
   let editors = [
     { value: htmlEditor },
     { value: cssEditor },
     { value: javascriptEditor },
   ];
 
-  let editorsValues = [];
   editors.forEach((item) => {
     if (item.value.getValue()) {
       editorsValues.push({
@@ -49,7 +50,7 @@ function getEditorsValue() {
       });
     }
   });
-  console.warn(editorsValues);
+  console.log(editorsValues);
 }
 runButton.addEventListener("click", getEditorsValue);
 document.addEventListener(
