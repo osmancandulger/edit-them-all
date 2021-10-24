@@ -7,6 +7,10 @@
 .editors-container {
   transition: transform 0.6s ease-in;
 }
+.CodeMirror {
+  transition: all 0.6s ease-in;
+}
+
 .editors-container-minimize {
   transform: scale(0.8);
 }
