@@ -54,44 +54,41 @@ saveButton.addEventListener("click", () => {
     alert("Please Provide a name");
   }
 });
-const minimizeButton = document.querySelector(".minimize-btn");
-minimizeButton.addEventListener("click", () => {
-  let editorContainer = document.querySelector(".editors-container");
-  let contentArea = document.querySelector(".content-area");
-  if (!editorContainer.classList.contains("editors-container-minimize")) {
-    editorContainer.classList.add("editors-container-minimize");
-    contentArea.classList.add("content-area-minimize");
-  } else {
-    editorContainer.classList.remove("editors-container-minimize");
-    contentArea.classList.remove("content-area-minimize");
-  }
-});
-
-let htmlEditor = CodeMirror.fromTextArea(editors[0].value, {
-  mode: editors[0].type,
+minimizer();
+function minimizer() {
+  const minimizeButton = document.querySelector(".minimize-btn");
+  minimizeButton.addEventListener("click", () => {
+    let editorContainer = document.querySelector(".editors-container");
+    let contentArea = document.querySelector(".content-area");
+    if (!editorContainer.classList.contains("editors-container-minimize")) {
+      editorContainer.classList.add("editors-container-minimize");
+      contentArea.classList.add("content-area-minimize");
+    } else {
+      editorContainer.classList.remove("editors-container-minimize");
+      contentArea.classList.remove("content-area-minimize");
+    }
+  });
+}
+let editorOptions = {
   theme: "dracula",
   lineNumbers: true,
   autoCloseTags: true,
   autoCloseBrackets: true,
   spellcheck: true,
+};
+let htmlEditor = CodeMirror.fromTextArea(editors[0].value, {
+  mode: editors[0].type,
+  ...editorOptions,
 });
 htmlEditor.setSize("350", "250");
 let cssEditor = CodeMirror.fromTextArea(editors[1].value, {
   mode: editors[1].type,
-  theme: "dracula",
-  lineNumbers: true,
-  autoCloseTags: true,
-  autoCloseBrackets: true,
-  spellcheck: true,
+  ...editorOptions,
 });
 cssEditor.setSize("350", "250");
 let javascriptEditor = CodeMirror.fromTextArea(editors[2].value, {
   mode: editors[2].type,
-  theme: "dracula",
-  lineNumbers: true,
-  autoCloseTags: true,
-  autoCloseBrackets: true,
-  spellcheck: true,
+  ...editorOptions,
 });
 javascriptEditor.setSize("350", "250");
 
