@@ -87,7 +87,10 @@ let editorOptions = {
   lineNumbers: true,
   autoCloseTags: true,
   autoCloseBrackets: true,
+  matchBrackets: true,
   spellcheck: true,
+  gutters: ["CodeMirror-lint-markers"],
+  lint: true,
 };
 let htmlEditor = CodeMirror.fromTextArea(editors[0].value, {
   mode: editors[0].type,
